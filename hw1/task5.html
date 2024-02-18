@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<h1>Task 5</h1>
+</head>
+
+<body>
+	<h3>Pixel Sampling</h3>
+	<p>Pixel sampling is a technique where in order to find the color for a point on one object, we can convert between
+		coordinate systems to obtain the desired color from an object in a different coordinate system. This allows us
+		to perform texture mapping by using a given texture as the source for colors and apply it onto any arbitrary
+		surface as long as the coordinate system conversion is done correctly.</p>
+	<br>
+	<h3>Methods of Pixel Sampling</h3>
+	<p>The simplest method of pixel sampling, also known as nearest pixel sampling, involves converting the coordinates
+		of the pixel to be colored from the original coordinate system to that of the texture's coordinate system, then
+		simply choosing the color of the closest pixel in the given texture. This technique is fast and provides a
+		somewhat accurate image, but lacks the ability to smooth edges and suffers from aliasing and reduced detail if
+		the resolution of the texture is lower than the output resolution.</p>
+	<p>An alternative method of pixel sampling is bilinear pixel sampling, which involves aggregating the colors of the
+		4 closest pixels in the given texture. While it costs more resources for rasterization, when properly
+		implemented, this technique is relatively fast and reduces aliasing artifacts and sharpens the output. This
+		allows for higher quality texture mapping without the need for other more expensive anti-aliasing techniques.
+	</p>
+	<br>
+	<h3>Comparing Methods</h3>
+	<img src="images/task5_1.png">
+	<img src="images/task5_2.png">
+	<img src="images/task5_3.png">
+	<img src="images/task5_4.png">
+	<p>As can be seen in the above images, the image with the most aliasing artifacts is on the top left, where nearest
+		pixel sampling is performed without supersampling. The edges of the landmasses are not smooth and the latitude
+		and longitude lines are choppy and jagged. These artifacts are reduced with bilinear pixel sampling as shown in
+		the bottom left image, with the edges of landmasses having more intermediate pixel values and the lines are
+		smoothed out, though they still have some choppiness and missing segments. This shows how bilinear pixel
+		sampling can achieve some anti-aliasing effects without the need for more computationally expensive techniques.
+	</p>
+	<p>However, supersampling is still extremely valuable, as can be seen in the images on the right, where most of the
+		aliasing artifacts are removed, lines appear in full throughout the image, and the overall output quality is
+		clearly better than the images without supersampling. This shows that despite the computational cost,
+		supersampling is still valuable as a technique to improve image quality.</p>
+</body>
+
+</html>

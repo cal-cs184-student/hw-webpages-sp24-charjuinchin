@@ -1,0 +1,27 @@
+<html>
+
+<head>
+	<h1>Task 1</h1>
+</head>
+
+<body>
+	<h3>Rasterizing Triangles</h3>
+	<p>Rasterizing triangles involves checking through every appropriate pixel in an image and identifying whether or
+		not it falls within the inside of a triangle. To do this check, using the center of every pixel, we can use a
+		function that uses cross-products to compare the pixel's location to that of a given line. If the pixel falls on
+		the same side of all three lines, when looking in either a clockwise or anti-clockwise direction, the pixel
+		falls within the triangle. By finding all of these pixels and coloring them appropriately, we then complete
+		rasterization of a triangle.</p>
+	<br>
+	<h3>Bounding Boxes</h3>
+	<p>To ensure that the algorithm does not check unnecessary pixels, the algorithm draws a bounding box around the
+		given triangle, as defined as the minimum and maximum of the given x and y-coordinates for each point of the
+		triangle. To ensure that the edges are fully checked, the floor of the minimums and ceil of the maximums are
+		used to define the last pixel to be tested. Only pixel centers that fall strictly within these two values are
+		tested. This ensures that efficiency is at least as efficient as sampling within the bounding box of the
+		triangle.</p>
+	<br>
+	<img src="images/task1.png">
+</body>
+
+</html>

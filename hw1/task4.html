@@ -1,0 +1,26 @@
+<html>
+
+<head>
+	<h1>Task 4</h1>
+</head>
+
+<body>
+	<h3>Barycentric Coordinates</h3>
+	<img src="images/task4_1.png">
+	<p>Barycentric coordinates are a coordinate system for triangles, and represents the distance of a given point from
+		the vertices of a triangle. This coordinate system can be represented by &alpha;, &beta; and &gamma;, each of
+		which ranges from 0 to 1, and the sum of the three values being 1. Taking &alpha; as an example, representing
+		the distance from vertex A on an arbitrary triangle, a value of 1 would represent a point sitting on the vertex
+		A, while a value of 0 would represent a point lying on the line BC. This coordinate system thus defines the
+		center of a triangle with the coordinates of (&frac13;, &frac13;, &frac13;).</p>
+	<p>This representation allows us to perform linear interpolation by calculating the color of a given pixel as a
+		weighted average of the three differently colored vertices. For each pixel in the triangle, by multiplying the
+		color of each vertex with their associated &alpha;, &beta;, or &gamma; values, the weighted average of the
+		colors can be obtained and used to rasterize the triangle. Thus, points on each of the vertices A, B, and C will
+		be entirely of their vertices' color, which is red, blue, and green respectively, while other points within the
+		triangle will be composed of gradients along those color lines depending on location. </p>
+	<br>
+	<img src="images/task4.png">
+</body>
+
+</html>

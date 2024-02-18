@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<h1>Task 2</h1>
+</head>
+
+<body>
+	<h3>Supersampling</h3>
+	<p>Supersampling is useful as a method of anti-aliasing as it allows for edges to be smoothed by finding the
+		appropriate intermediate values for each pixel on the edges of rasterized objects through sampling multiple
+		times per pixel. Supersampling at a given sample rate can be viewed as increasing the resolution of an image by
+		the sample rate, and then downsampling to the original resolution. Therefore, each pixel in the original
+		resolution is composed of multiple pixels at the higher resolution.</p>
+	<p>Implementing supersampling first involves creating a sample buffer and rasterization bounding box that is scaled
+		to the higher resolution image. Pixels within the bounding box are then tested using the three line test to
+		check if they fall within the triangle. However, as the bounding box is scaled to the higher resolution, the
+		coordinates of each pixel center must be scaled down to the original resolution to ensure correctness of the
+		test. Once all the pixels have been tested and colored appropriately, the sample buffer would then contain the
+		rasterized image at the higher resolution.</p>
+	<p>To downsample the image, the algorithm looks at each pixel at the original resolution and finds the pixels in the
+		sample buffer that correspond to the given pixel. The colors of the pixels in the sample buffer are then
+		averaged and rasterized onto the final output. At the edges, since not all of the pixels in the sample buffer
+		may fall within the triangle and thus be colored, intermediate values are generated during the averaging
+		process.</p>
+	<br>
+	<h3>Image Comparisons</h3>
+	<img src="images/task2_1.png" width="600">
+	<img src="images/task2_2.png" width="600">
+	<img src="images/task2_3.png" width="600">
+	<p>In the above images, we can see the difference made by super sampling in the same region of the image. Without
+		supersampling (supersample rate = 1), aliasing can be seen where the triangle's edges are jagged and form a
+		stair-like pattern, and parts of it even disappear entirely. With super sampling, however, these artifacts are
+		reduced, with intermediate values filling in missing parts of the triangle to smoothen out the edges.</p>
+	<p>When comparing supersample rates, we can see that the anti-aliasing is better at higher supersample rates. This
+		is because of the range of possible intermediate values increases. At a supersample rate of 4, we can see that
+		each pixel can only have 1 of 4 colors, while at a supersample rate of 16, there are 16 possible options, which
+		allows for more definition at the edges.</p>
+</body>
+
+</html>

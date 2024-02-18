@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<h1>Task 6</h1>
+</head>
+
+<body>
+	<h3>Level Sampling</h3>
+	<p>Level sampling is an extension of pixel sampling where mipmaps are used for anti-aliasing without incurring high
+		performance impacts. Mipmaps are lower resolution versions of an image stored in memory that are used for
+		texture mapping depending on the nature of the texture being mapped. If that specific region of the texture
+		does not require as much detail, lower resolution mipmaps are used, reducing computational costs without
+		sacrificing quality. However, as mipmaps must be stored in memory, there are associated memory costs.</p>
+	<p>Level sampling is used for texture mapping by calculating the necessary mipmap level for each pixel to be texture
+		mapped, and using the appropriate mipmap level for that pixel. For nearest level mapping, the mipmap level
+		chosen is just the nearest level to the calculated level value, while for linear level mapping, a weighted
+		average of the two nearest mipmap levels are used to determine the pixel's color.</p>
+	<br>
+	<h3>Sampling Techniques</h3>
+	<p>There are three main techniques explored so far, pixel sampling, level sampling, and supersampling. Among the
+		three techniques, pixel sampling is the fastest, only requiring a few calculations per pixel and not requiring
+		any memory overhead, but it has a low anti-aliasing power and struggles with complex images. Level sampling is
+		more effective than pixel sampling, but it costs more memory to store the additional mipmaps and depending on
+		the type of sampling used, may incur additional computational costs. Supersampling is the most effective
+		anti-aliasing method, however, it comes with the highest computational cost and takes up more space in memory as
+		well, since a higher resolution image must be stored on memory in order for downsampling to be performed.</p>
+	<br>
+	<h3>Comparing Methods</h3>
+	<img src="images/task6_1.png">
+	<img src="images/task6_2.png">
+	<img src="images/task6_3.png">
+	<img src="images/task6_4.png">
+	<p>The above images show the changes in the moire patterning with changes in pixel sampling and level sampling
+		techniques. The greatest reduction in the patterning and general aliasing effects can be seen with the use of
+		both nearest level sampling and bilinear pixel sampling on the bottom right, while with only nearest pixel
+		sampling, as shown on the top left, a high degree of aliasing and moire patterning artifacts can be seen.</p>
+	<p>When comparing the use of either only bilinear pixel sampling or only nearest level sampling, nearest level
+		sampling seems to have better performance, with much less moire effects and a similar reduction in aliasing as
+		compared to bilinear pixel sampling.</p>
+</body>
+
+</html>
